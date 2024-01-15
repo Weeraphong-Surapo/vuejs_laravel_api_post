@@ -1,0 +1,45 @@
+@import './base.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.grid-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 20px;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.box-add {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.card-comment {
+  /* top: 5px; */
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.grid-container-img {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 20px;
+}
+
+@media screen and (min-width:992px) {
+  section.container{
+    width: 700px !important;
+  }
+  .box-frind{
+    opacity: 1;
+  }
+}
