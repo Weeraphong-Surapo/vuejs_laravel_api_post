@@ -1,4 +1,5 @@
 <p>ขอบคุณที่สนับสนุนกันนะครับ ทีแรกกะจะแจกฟรี แต่ขอค่าไฟค่าเหนื่อยสนับสนุนนิดหน่อยนะครับ</p> 
+<img src="https://img5.pic.in.th/file/secure-sv1/-----Thank-You-Postcard.png"/>
 <p>ขั้นการดาวโหลด หรือ โคลนโปรเจ็คไปแล้ว</p> 
 <p>Run : git clone https://github.com/Weeraphong-Surapo/vuejs_laravel_api_post.git</p> 
 <p>หรือกดาวโหลด</p> <p>Laravel มีขั้นตอนดังนี้</p> 
