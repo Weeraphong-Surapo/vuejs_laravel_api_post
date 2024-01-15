@@ -8,7 +8,7 @@
                     <div class="d-flex justify-content-between mb-2" v-if="form.user">
                         <div class="grid-container">
                             <div class="col-12">
-                                <img width="60" height="60" :src="form.user?.image" alt="" />
+                                <img width="60" height="60" :src="form.user?.image" alt="" style="border-radius:50%;object-fit:cover;" />
                             </div>
                             <div class="col-12">
                                 <span>{{ form.user?.name }}</span>
@@ -23,19 +23,22 @@
                     </div>
 
                     <textarea name="" id="" cols="30" rows="2" class="form-control" v-model="form.text"></textarea>
-                    <img v-if="hasChangeFile" class="w-100 mt-2" height="270" style="object-fit: cover"
+                    <img v-if="hasChangeFile" class="w-100 mt-2" height="270" style="object-fit: cover;"
                         :src="form.imageDataUrl" alt="" />
                     <img v-if="form.image && !hasChangeFile" class="w-100 mt-2" height="270" style="object-fit: cover"
                         :src="form.image" alt="" />
                     <div class="grid-container mt-3">
-                        <button v-if="!form.image" @click="triggerFileInput" type="button" class="btn btn-secondary">
+                        <button v-if="!form.image" @click="triggerFileInput" type="button" class="btn btn-secondary" :disabled="loading">
                             <input type="file" ref="fileInputRef" class="d-none" @change="handleFileChange">+
                             อัพโหลดรูปภาพ
                         </button>
                         <button v-else @click="cancelImage" type="button" class="btn btn-danger">
                             ยกเลิกรูปภาพ
                         </button>
-                        <button @click="handleSubmit" class="btn btn-success" type="submit">อัพเดต</button>
+                        <button @click="handleSubmit" class="btn btn-success" type="submit" :disabled="loading">
+                            <span v-if="!loading">อัพเดต</span>
+                            <span v-else>โปรดรอ...</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -58,6 +61,8 @@ const fileInputRef = ref(null);
 const postId = computed(() => {
     return router.currentRoute.value.params?.id;
 })
+
+const loading = ref(false)
 
 const handleFileChange = (event) => {
     hasChangeFile.value = true
@@ -97,6 +102,7 @@ const removePost = async () => {
 }
 const handleSubmit = async () => {
     try {
+        loading.value = true
         let fd = new FormData;
         fd.append('file', form.value.image)
         fd.append('text', form.value.text)
@@ -113,6 +119,8 @@ const handleSubmit = async () => {
         } else {
             notify("เกิดข้อผิดพลาด", 'error')
         }
+    }finally{
+        loading.value = false
     }
 }
 

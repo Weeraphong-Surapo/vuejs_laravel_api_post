@@ -95,7 +95,7 @@
 
 
             <div class="grid-container">
-              <img width="60" height="60" :src="post.user.image" style="border-radius: 50%; object-fit:cover;" alt="" />
+              <img width="60" height="60" :src="image" style="border-radius: 50%; object-fit:cover;" alt="" />
               <form @submit.prevent="handleSubmit" class="d-flex">
                 <div class="input-group">
                   <textarea v-model="form.text" name="" id="" cols="30" placeholder="เขียนความคิดเห็น"
@@ -127,9 +127,15 @@ import { axiosPrivate } from '@/common/axiosPrivate';
 import { useAuthStore } from '@/stores/auth';
 import router from '@/router';
 
+
+
 const props = defineProps(['post', 'getAllPost'])
 
 const authStore = useAuthStore()
+
+const image = computed(() => {
+    return authStore.getDatauser?.image
+})
 const post = computed(() => {
   return props.post
 })

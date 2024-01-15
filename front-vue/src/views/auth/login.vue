@@ -6,11 +6,11 @@
                 <h1 class="h3 mb-3 fw-normal text-center">ยินดีต้อนรับกลับ</h1>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" placeholder="name@example.com" v-model="form.email" />
-                    <label for="floatingInput">อีเมล</label>
+                    <label for="floatingInput" class="text-dark">อีเมล</label>
                 </div>
                 <div class="form-floating">
                     <input type="password" class="form-control" placeholder="Password" v-model="form.password" />
-                    <label for="floatingPassword">รหัสผ่าน</label>
+                    <label for="floatingPassword" class="text-dark">รหัสผ่าน</label>
                 </div>
 
                 <button class="w-100 btn btn-lg btn-primary my-3" type="submit" :disabled="loading">

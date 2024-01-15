@@ -7,16 +7,16 @@
 
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" placeholder="name@example.com" v-model="form.name" />
-                    <label for="floatingInput">ชื่อผู้ใช้งาน</label>
+                    <label for="floatingInput" class="text-dark">ชื่อผู้ใช้งาน</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control" placeholder="name@example.com" v-model="form.email" />
-                    <label for="floatingInput">อีเมล</label>
+                    <label for="floatingInput" class="text-dark">อีเมล</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
                         v-model="form.password" />
-                    <label for="floatingPassword">รหัสผ่าน</label>
+                    <label for="floatingPassword" class="text-dark">รหัสผ่าน</label>
                 </div>
                 <!-- <div class="form-floating mb-3">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
